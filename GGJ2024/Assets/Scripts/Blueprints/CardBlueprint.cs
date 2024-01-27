@@ -14,6 +14,7 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
 
     public ThemeEnum Theme { get; private set; }
     public ToneEnum Tone { get; private set; }
+    public ICardHolder cardHolder { get; private set; }
 
     private JokeManager jokeManager;
     private bool selected;
@@ -40,6 +41,11 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
         return gameObject;
     }
 
+    public void SetHolder(ICardHolder holder)
+    {
+        cardHolder = holder;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!selected)
@@ -52,7 +58,7 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
         } else
         {
             jokeManager.RemoveCard(this);
-            outline.SetActive(true);
+            outline.SetActive(false);
             selected = false;
         }
     }

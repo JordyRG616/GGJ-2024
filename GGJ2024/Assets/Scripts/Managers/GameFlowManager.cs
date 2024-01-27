@@ -8,8 +8,18 @@ public class GameFlowManager : ManagerBehaviour
     public Action OnTurnStart;
     public Action OnTurnEnd;
 
+    private JokeManager jokeManager;
 
-    [ContextMenu("Start Turn")]
+
+    private IEnumerator Start()
+    {
+        jokeManager = GameMaster.GetManager<JokeManager>();
+
+        yield return new WaitForSeconds(0.1f);
+
+        StartTurn();
+    }
+
     private void StartTurn()
     {
         OnTurnStart?.Invoke();
@@ -17,6 +27,6 @@ public class GameFlowManager : ManagerBehaviour
 
     public void EndTurn()
     {
-        OnTurnEnd?.Invoke();
+        if(jokeManager.CanTellJoke) OnTurnEnd?.Invoke();
     }
 }

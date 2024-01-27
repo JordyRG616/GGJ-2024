@@ -32,6 +32,7 @@ public class HandManager : ManagerBehaviour, ICardHolder
     public void ReceiveCard(CardBlueprint card)
     {
         card.transform.SetParent(handHolder);
+        card.SetHolder(this);
         cardsInHand.Add(card);
     }
 

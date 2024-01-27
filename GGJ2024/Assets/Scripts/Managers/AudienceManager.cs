@@ -24,6 +24,7 @@ public class AudienceManager : ManagerBehaviour, ICardHolder
     public void ReceiveCard(CardBlueprint card)
     {
         card.transform.SetParent(tableHolder);
+        card.SetHolder(this);
         cardsInTable.Add(card);
     }
 

@@ -2068,6 +2068,8 @@ MonoBehaviour:
   - gameObject: {fileID: 717887458}
     theme: {fileID: 717887457}
     tone: {fileID: 717887455}
+  avaliators:
+  - {fileID: 11400000, guid: b278dc2cbf66a9f40beb4d99117c893c, type: 2}
 --- !u!1 &1349397165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,6 +2196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957500103}
   - component: {fileID: 1957500104}
+  - component: {fileID: 1957500105}
   m_Layer: 5
   m_Name: Deck Holder
   m_TagString: Untagged
@@ -2246,6 +2249,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &1957500105
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957500102}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2006476310
 GameObject:
   m_ObjectHideFlags: 0
