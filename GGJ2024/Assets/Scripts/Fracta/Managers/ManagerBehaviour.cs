@@ -9,9 +9,14 @@ public abstract class ManagerBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
-        this.RegisterManager();
+        GameMaster.RegisterManager(this);
 
         controllers = GetComponents<IController>().ToList();
+    }
+
+    private void OnDestroy()
+    {
+        GameMaster.RemoveManager(this);
     }
 
     public T GetController<T>() where T : IController
