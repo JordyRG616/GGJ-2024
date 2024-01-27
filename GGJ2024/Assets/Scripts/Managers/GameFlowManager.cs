@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameFlowManager : ManagerBehaviour
 {
+    [SerializeField] private float transitionDelay;
+
     public Action OnTurnStart;
     public Action OnTurnEnd;
 
@@ -27,6 +29,22 @@ public class GameFlowManager : ManagerBehaviour
 
     public void EndTurn()
     {
-        if(jokeManager.CanTellJoke) OnTurnEnd?.Invoke();
+        StartCoroutine(DoTransitionBetweenTurns());
+    }
+
+    private IEnumerator DoTransitionBetweenTurns()
+    {
+        if (jokeManager.CanTellJoke)
+        {
+            jokeManager.EvaluateJoke();
+
+            yield return new WaitForSeconds(transitionDelay);
+        }
+
+        OnTurnEnd?.Invoke();
+
+        yield return new WaitForSeconds(transitionDelay);
+
+        StartTurn();
     }
 }

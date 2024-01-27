@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Avaliators/Pair")]
-public class PairAvaliator : JokeAvaliator
+[CreateAssetMenu(menuName = "Data/Avaliators/Triple")]
+public class TripleAvaliator : JokeAvaliator
 {
     public override bool Fulfilled(List<CardBlueprint> cards)
     {
@@ -11,10 +11,8 @@ public class PairAvaliator : JokeAvaliator
         {
             var value = cards[i].Value;
 
-            for (int j = i + 1; j < cards.Count; j++)
-            {
-                if (cards[j].Value == value) return true;
-            }
+            var matches = cards.FindAll(x => x.Value == value);
+            if (matches.Count >= 3) return true;
         }
 
         return false;

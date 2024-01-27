@@ -5,8 +5,8 @@ using UnityEngine;
 public class CardFactory : FactoryBehaviour
 {
     [Space]
-    [SerializeField] private List<ThemeEnum> themes;
-    [SerializeField] private List<ToneEnum> tones;
+    [SerializeField] private List<SuitEnum> themes;
+    [SerializeField] private List<ValueEnum> tones;
 
 
     protected override void Awake()
@@ -40,6 +40,6 @@ public class CardFactory : FactoryBehaviour
 
 public class CardConfiguration : FactoryConfiguration
 {
-    public ThemeEnum theme;
-    public ToneEnum tone;
+    public SuitEnum theme;
+    public ValueEnum tone;
 }

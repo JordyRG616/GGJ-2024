@@ -12,8 +12,8 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
     [Header("Placeholder")]
     [SerializeField] private GameObject outline;
 
-    public ThemeEnum Theme { get; private set; }
-    public ToneEnum Tone { get; private set; }
+    public SuitEnum Suit { get; private set; }
+    public ValueEnum Value { get; private set; }
     public ICardHolder cardHolder { get; private set; }
 
     private JokeManager jokeManager;
@@ -23,17 +23,18 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
     private void Start()
     {
         jokeManager = GameMaster.GetManager<JokeManager>();
+        GameMaster.GetManager<GameFlowManager>().OnTurnEnd += Unselect;
     }
 
     public void Configure(FactoryConfiguration configuration)
     {
         var config = configuration as CardConfiguration;
 
-        Theme = config.theme;
-        Tone = config.tone;
+        Suit = config.theme;
+        Value = config.tone;
 
-        ThemeImages.ForEach(x => x.sprite = Theme.Icon);
-        ToneValues.ForEach(x => x.text = Tone.Value.ToString());
+        ThemeImages.ForEach(x => x.sprite = Suit.Icon);
+        ToneValues.ForEach(x => x.text = Value.Value.ToString());
     }
 
     public GameObject GetConcrete()
@@ -57,10 +58,17 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
             }
         } else
         {
-            jokeManager.RemoveCard(this);
-            outline.SetActive(false);
-            selected = false;
+            Unselect();
         }
+    }
+
+    private void Unselect()
+    {
+        if (!selected) return;
+
+        jokeManager.RemoveCard(this);
+        outline.SetActive(false);
+        selected = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

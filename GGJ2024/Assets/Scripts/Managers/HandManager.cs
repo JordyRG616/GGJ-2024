@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,19 @@ public class HandManager : ManagerBehaviour, ICardHolder
     private void Start()
     {
         deckManager = GameMaster.GetManager<DeckManager>();
-        GameMaster.GetManager<GameFlowManager>().OnTurnStart += DrawTurnHand;
+        var gameFlow = GameMaster.GetManager<GameFlowManager>();
+        gameFlow.OnTurnStart += DrawTurnHand;
+        gameFlow.OnTurnEnd += ReturnCardsToDeck;
+    }
+
+    private void ReturnCardsToDeck()
+    {
+        foreach (var card in cardsInHand)
+        {
+            deckManager.ReceiveCard(card);
+        }
+
+        cardsInHand.Clear();
     }
 
     private void DrawTurnHand()

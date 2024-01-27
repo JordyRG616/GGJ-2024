@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbaaec30631d6e14db8b9fd283010185, type: 3}
+  m_Script: {fileID: 11500000, guid: 71001f388afca374989d14a1077bced2, type: 3}
   m_Name: Theme 2
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 21300000, guid: 72a3c6132d5e2ae48a1df56cfebbc7c2, type: 3}

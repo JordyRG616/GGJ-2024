@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="Data/Cards/New Theme")]
-public class ThemeEnum : ScriptableEnum
+public class SuitEnum : ScriptableEnum
 {
     
 }

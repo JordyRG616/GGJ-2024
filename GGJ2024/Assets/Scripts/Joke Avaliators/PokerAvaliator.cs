@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Avaliators/Pair")]
-public class PairAvaliator : JokeAvaliator
+[CreateAssetMenu(menuName = "Data/Avaliators/Poker")]
+public class PokerAvaliator : JokeAvaliator
 {
+    [SerializeField] private int pokerSize = 4;
+
     public override bool Fulfilled(List<CardBlueprint> cards)
     {
         for (int i = 0; i < cards.Count; i++)
         {
             var value = cards[i].Value;
 
-            for (int j = i + 1; j < cards.Count; j++)
-            {
-                if (cards[j].Value == value) return true;
-            }
+            var matches = cards.FindAll(x => x.Value == value);
+            if (matches.Count >= pokerSize) return true;
         }
 
         return false;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="Data/Cards/New Tone")]
-public class ToneEnum : ScriptableEnum
+public class ValueEnum : ScriptableEnum
 {
     
 }

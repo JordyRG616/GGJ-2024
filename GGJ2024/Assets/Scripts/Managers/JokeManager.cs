@@ -14,22 +14,22 @@ public class JokeManager : ManagerBehaviour
     public bool CanTellJoke => cardDisplay.Count == jokeSize && cardsFromHand > 0 && cardsFromAudience > 0;
 
     private List<CardBlueprint> cardsInJoke = new List<CardBlueprint>();
-
-    private int cardsFromHand;
+    private AudienceManager audienceManager;
     private int cardsFromAudience;
+    private int cardsFromHand;
 
 
     private void Start()
     {
-        GameMaster.GetManager<GameFlowManager>().OnTurnEnd += AvaliateJoke;
+        audienceManager = GameMaster.GetManager<AudienceManager>();
     }
 
     public bool CanReceiveCard(CardBlueprint card)
     {
         if (cardsInJoke.Count < jokeSize)
         {
-            var display = cardDisplay[cardsInJoke.Count];
-            SetDisplay(display, card);
+            var display = cardDisplay.Find(x => x.active == false);
+            display.SetActive(card);
 
             if (card.cardHolder is HandManager) cardsFromHand++;
             else cardsFromAudience++;
@@ -46,35 +46,61 @@ public class JokeManager : ManagerBehaviour
         if (!cardsInJoke.Contains(card))
         {
             Debug.LogError("The selected card is not in the joke.");
+            return;
         }
 
-        var index = cardsInJoke.IndexOf(card);
-        cardDisplay[index].gameObject.SetActive(false);
-        cardsInJoke.RemoveAt(index);
+        var display = cardDisplay.Find(x => x.cachedCard == card);
+        display.SetInactive();
+        cardsInJoke.Remove(card);
     }
 
-    public void SetDisplay(SelectedCardDisplay display, CardBlueprint card)
-    {
-        display.theme.sprite = card.Theme.Icon;
-        display.tone.text = card.Tone.Value.ToString();
-        display.gameObject.transform.SetAsLastSibling();
-        display.gameObject.SetActive(true);
-    }
 
-    private void AvaliateJoke()
+    public void EvaluateJoke()
     {
+        var toldJoke = false;
+
         for (int i = 0; i < avaliators.Count; i++)
         {
             var avaliator = avaliators[i];
-            if (avaliator.Fulfilled(cardsInJoke)) Debug.Log("Fulfilled");
+            if (avaliator.Fulfilled(cardsInJoke))
+            {
+                audienceManager.EvaluateToleranceChange(avaliator.toleranceReward);
+                toldJoke = true;
+                break;
+            }
+        }
+
+        if(!toldJoke)
+        {
+            audienceManager.ApplyToleranceHit();
         }
     }
 }
 
 [System.Serializable]
-public struct SelectedCardDisplay
+public class SelectedCardDisplay
 {
     public GameObject gameObject;
     public Image theme;
     public TextMeshProUGUI tone;
+    public CardBlueprint cachedCard;
+    public bool active;
+
+
+    public void SetActive(CardBlueprint card)
+    {
+        cachedCard = card;
+        active = true;
+
+        theme.sprite = card.Suit.Icon;
+        tone.text = card.Value.Value.ToString();
+        gameObject.transform.SetAsLastSibling();
+        gameObject.SetActive(true);
+    }
+
+    public void SetInactive()
+    {
+        active = false;
+        gameObject.SetActive(false);
+    }
 }
