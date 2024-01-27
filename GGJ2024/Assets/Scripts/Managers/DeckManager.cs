@@ -30,7 +30,12 @@ public class DeckManager : ManagerBehaviour, ICardHolder
         var transf = card.transform;
         transf.SetParent(deckHolder);
         transf.localScale = Vector3.one;
-        
+
+        var rect = card.transform as RectTransform;
+        rect.anchorMin = Vector2.one * .5f;
+        rect.anchorMax = Vector2.one * .5f;
+        rect.anchoredPosition = Vector2.zero;
+
         deck.Add(card);
     }
 

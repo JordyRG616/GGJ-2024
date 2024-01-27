@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class AudienceManager : ManagerBehaviour, ICardHolder
 {
+    [SerializeField] private List<Transform> cardSlots;
+
     [SerializeField] private int initialFlip;
     [SerializeField] private int maxTolerance;
     [SerializeField] private int initialTolerance;
-    [SerializeField] private Transform tableHolder;
     [SerializeField] private List<int> noJokeToleranceHit;
 
     public Action<int, int> OnToleranceChanged;
@@ -57,9 +58,17 @@ public class AudienceManager : ManagerBehaviour, ICardHolder
 
     public void ReceiveCard(CardBlueprint card)
     {
-        card.transform.SetParent(tableHolder);
+        var slot = cardSlots.Find(x => x.childCount == 0);
+
+        card.transform.SetParent(slot);
         card.SetHolder(this);
         cardsInTable.Add(card);
+        card.SetFrameOrientation(new Vector3(Mathf.Sign(slot.localPosition.x), Mathf.Sign(slot.localPosition.y), 1));
+
+        var rect = card.transform as RectTransform;
+        rect.anchorMin = Vector2.one * .5f;
+        rect.anchorMax = Vector2.one * .5f;
+        rect.anchoredPosition = Vector2.zero;
     }
 
     public void RemoveCard(CardBlueprint card)

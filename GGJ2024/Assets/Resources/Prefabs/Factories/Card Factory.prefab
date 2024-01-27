@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6966339930878970506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5454283422984887503}
+  - component: {fileID: 52991642781475929}
+  m_Layer: 0
+  m_Name: Card Factory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5454283422984887503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966339930878970506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &52991642781475929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966339930878970506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d270e0f829aa849bd5672198ba1c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueprint: {fileID: 282545215891053577, guid: ec4d08f910bd0c040bebf6bfb9e8b6fe, type: 3}
+  themes:
+  - {fileID: 11400000, guid: 4a18b7e8aaefa8a41bee81dd50357462, type: 2}
+  - {fileID: 11400000, guid: fdfaabbef7e52e64cbb640ab30f3eb0b, type: 2}
+  - {fileID: 11400000, guid: 57ef2d13790543b49845ee184cc0781d, type: 2}
+  - {fileID: 11400000, guid: a76d0594642c16b42a176245163690f8, type: 2}
+  tones:
+  - {fileID: 11400000, guid: ad365b74db1c8d04990ec25afb747364, type: 2}
+  - {fileID: 11400000, guid: 47b93127afcecec4fb33f1fef2f88474, type: 2}
+  - {fileID: 11400000, guid: 350e923c30acb414d8d149190bb0c5d0, type: 2}
+  - {fileID: 11400000, guid: b438dcc3910c74c48aa3e6c63f456684, type: 2}
+  - {fileID: 11400000, guid: 47d110e2c23951f45acdb17c42867d8e, type: 2}
+  - {fileID: 11400000, guid: f2d3d9e7c0d3db34daed058eebd93381, type: 2}
+  - {fileID: 11400000, guid: b8e44f018f43c874ba96278f144e6a74, type: 2}
+  - {fileID: 11400000, guid: 4e9774d69e379404cadef10f03dee5c3, type: 2}
+  - {fileID: 11400000, guid: 1abf6097e2b06e44ea878c620f8a2215, type: 2}

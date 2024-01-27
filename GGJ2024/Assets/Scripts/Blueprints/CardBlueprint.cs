@@ -7,10 +7,11 @@ using TMPro;
 
 public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private List<Image> ThemeImages;
-    [SerializeField] private List<TextMeshProUGUI> ToneValues;
-    [Header("Placeholder")]
-    [SerializeField] private GameObject outline;
+    [SerializeField] private Image bg;
+    [Space]
+    [SerializeField] private Image suitImage;
+    [SerializeField] private Image valueImage;
+    [SerializeField] private Sprite selectedSprite;
 
     public SuitEnum Suit { get; private set; }
     public ValueEnum Value { get; private set; }
@@ -30,11 +31,11 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
     {
         var config = configuration as CardConfiguration;
 
-        Suit = config.theme;
-        Value = config.tone;
+        Suit = config.suit;
+        Value = config.value;
 
-        ThemeImages.ForEach(x => x.sprite = Suit.Icon);
-        ToneValues.ForEach(x => x.text = Value.Value.ToString());
+        suitImage.sprite = Suit.Icon;
+        valueImage.sprite = Value.Icon;
     }
 
     public GameObject GetConcrete()
@@ -53,7 +54,7 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
         {
             if (jokeManager.CanReceiveCard(this))
             {
-                outline.SetActive(true);
+                bg.overrideSprite = selectedSprite;
                 selected = true;
             }
         } else
@@ -67,7 +68,7 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
         if (!selected) return;
 
         jokeManager.RemoveCard(this);
-        outline.SetActive(false);
+        bg.overrideSprite = null;
         selected = false;
     }
 
@@ -79,5 +80,11 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
     public void OnPointerExit(PointerEventData eventData)
     {
         if(!selected) transform.localScale = Vector3.one;
+    }
+
+    public void SetFrameOrientation(Vector3 orientation)
+    {
+        bg.transform.localScale = orientation;
+
     }
 }

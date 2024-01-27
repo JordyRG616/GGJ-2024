@@ -23,11 +23,11 @@ public class CardFactory : FactoryBehaviour
 
         foreach (var theme in themes)
         {
-            configuration.theme = theme;
+            configuration.suit = theme;
 
             foreach (var tone in tones)
             {
-                configuration.tone = tone;
+                configuration.value = tone;
 
                 Create<CardBlueprint>(configuration, out var card);
                 container.Add(card);
@@ -40,6 +40,6 @@ public class CardFactory : FactoryBehaviour
 
 public class CardConfiguration : FactoryConfiguration
 {
-    public SuitEnum theme;
-    public ValueEnum tone;
+    public SuitEnum suit;
+    public ValueEnum value;
 }
