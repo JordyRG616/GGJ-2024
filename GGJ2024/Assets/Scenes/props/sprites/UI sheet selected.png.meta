@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5813ab9eac19d1448a650295560a426d
+guid: 8ebdfc4ce659a5b408f681f96d66c46f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,97 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plateia sprite_0
+      name: UI sheet selected_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 465
-        width: 256
-        height: 439
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8d2130d30e29784883d297416dc03f4
-      internalID: -2134094274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: plateia sprite_1
-      rect:
-        serializedVersion: 2
-        x: 411
-        y: 462
-        width: 239
-        height: 442
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fade9b2447b74cc4fb0b4f3215f459ac
-      internalID: -1791574443
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: plateia sprite_2
-      rect:
-        serializedVersion: 2
-        x: 680
-        y: 414
-        width: 194
-        height: 330
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0981df3c35496aa4db43c6dd5db7f26c
-      internalID: -971816825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: plateia sprite_3
-      rect:
-        serializedVersion: 2
-        x: 916
-        y: 416
-        width: 168
-        height: 325
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4815cc3106b1fa641b6ecdb156ef9d0e
-      internalID: -130554092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: plateia sprite_4
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 0
-        width: 267
-        height: 446
+        x: 7
+        y: 368
+        width: 125
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bca5a678e520b64db74aa3f7cc092bc
-      internalID: 1903990577
+      spriteID: 275cb50ffb58e714c9f3a484729a0bc7
+      internalID: 182891694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plateia sprite_5
+      name: UI sheet selected_2
       rect:
         serializedVersion: 2
-        x: 413
-        y: 0
-        width: 251
-        height: 446
+        x: 162
+        y: 382
+        width: 106
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa8a178cd8f9f2a4aa2865b2e5c28add
-      internalID: 1367043947
+      spriteID: 2dcfcdb1d4f9fa64fba6e02e40de99e5
+      internalID: -1039030352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plateia sprite_6
+      name: UI sheet selected_3
       rect:
         serializedVersion: 2
-        x: 676
-        y: 0
-        width: 198
-        height: 329
+        x: 290
+        y: 385
+        width: 94
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd37cb6ac0c2e544a672451ac795ec7
-      internalID: -1816396357
+      spriteID: d39f73cbd36cadb4ab4c08575b04ca43
+      internalID: -262754141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plateia sprite_7
+      name: UI sheet selected_4
       rect:
         serializedVersion: 2
-        x: 901
-        y: 0
-        width: 196
-        height: 329
+        x: 41
+        y: 249
+        width: 107
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +200,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c43d5771d8d847543b60155b54894be7
-      internalID: 1155898131
+      spriteID: 3665b3a7b6060f442b8092a886768487
+      internalID: -1840926818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI sheet selected_5
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 243
+        width: 73
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c64149828bd7a64993acfe544508ffb
+      internalID: 623007982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI sheet selected_6
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 328
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0b2a32e51c8144e8211587061b40ff
+      internalID: -1046778447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI sheet selected_7
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 119
+        width: 327
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3cf1eb1f67e6545a49b6772051f267
+      internalID: 1582435220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI sheet selected_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 69
+        width: 290
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aedf6c7bae8a88f40979bfb11b07a47d
+      internalID: 818252841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI sheet selected_9
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 17
+        width: 312
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ba3b532b19f8d4cae7080286cfb023
+      internalID: 1283694405
       vertices: []
       indices: 
       edges: []
@@ -301,14 +322,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      plateia sprite_0: -2134094274
-      plateia sprite_1: -1791574443
-      plateia sprite_2: -971816825
-      plateia sprite_3: -130554092
-      plateia sprite_4: 1903990577
-      plateia sprite_5: 1367043947
-      plateia sprite_6: -1816396357
-      plateia sprite_7: 1155898131
+      UI sheet selected_0: -1313786131
+      UI sheet selected_1: 182891694
+      UI sheet selected_2: -1039030352
+      UI sheet selected_3: -262754141
+      UI sheet selected_4: -1840926818
+      UI sheet selected_5: 623007982
+      UI sheet selected_6: -1046778447
+      UI sheet selected_7: 1582435220
+      UI sheet selected_8: 818252841
+      UI sheet selected_9: 1283694405
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
