@@ -81,8 +81,8 @@ public class JokeManager : ManagerBehaviour
 public class SelectedCardDisplay
 {
     public GameObject gameObject;
-    public Image theme;
-    public TextMeshProUGUI tone;
+    public Image suit;
+    public Image value;
     public CardBlueprint cachedCard;
     public bool active;
 
@@ -92,8 +92,8 @@ public class SelectedCardDisplay
         cachedCard = card;
         active = true;
 
-        theme.sprite = card.Suit.Icon;
-        tone.text = card.Value.Value.ToString();
+        suit.sprite = card.Suit.Icon;
+        value.sprite = card.Value.Icon;
         gameObject.transform.SetAsLastSibling();
         gameObject.SetActive(true);
     }

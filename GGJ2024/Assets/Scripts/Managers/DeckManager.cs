@@ -23,6 +23,7 @@ public class DeckManager : ManagerBehaviour, ICardHolder
         deck.Remove(card);
         
         holder.ReceiveCard(card);
+        card.gameObject.SetActive(true);
     }
 
     public void ReceiveCard(CardBlueprint card)
@@ -37,6 +38,7 @@ public class DeckManager : ManagerBehaviour, ICardHolder
         rect.anchoredPosition = Vector2.zero;
 
         deck.Add(card);
+        card.gameObject.SetActive(false);
     }
 
     public void RemoveCard(CardBlueprint card)

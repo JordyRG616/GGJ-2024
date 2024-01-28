@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -12,6 +13,9 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
     [SerializeField] private Image suitImage;
     [SerializeField] private Image valueImage;
     [SerializeField] private Sprite selectedSprite;
+
+    public static bool SelectingCardToRemember = false;
+    public static System.Action<CardBlueprint> OnCardSelectedToRemember;
 
     public SuitEnum Suit { get; private set; }
     public ValueEnum Value { get; private set; }
@@ -50,6 +54,24 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (SelectingCardToRemember && cardHolder is HandManager)
+        {
+            SendToMemoryHolder();
+        }
+        else
+        {
+            SetSelected();
+        }
+    }
+
+    private void SendToMemoryHolder()
+    {
+        OnCardSelectedToRemember?.Invoke(this);
+        SelectingCardToRemember = false;
+    }
+
+    private void SetSelected()
+    {
         if (!selected)
         {
             if (jokeManager.CanReceiveCard(this))
@@ -57,7 +79,8 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
                 bg.overrideSprite = selectedSprite;
                 selected = true;
             }
-        } else
+        }
+        else
         {
             Unselect();
         }

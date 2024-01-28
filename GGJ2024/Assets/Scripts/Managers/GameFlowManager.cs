@@ -7,19 +7,23 @@ public class GameFlowManager : ManagerBehaviour
 {
     [SerializeField] private float transitionDelay;
 
+    public Action OnGameStart;
     public Action OnTurnStart;
     public Action OnTurnEnd;
 
     private JokeManager jokeManager;
 
 
-    private IEnumerator Start()
+    private void Start()
     {
         jokeManager = GameMaster.GetManager<JokeManager>();
+    }
 
-        yield return new WaitForSeconds(0.1f);
+    public void StartGame()
+    {
+        OnGameStart?.Invoke();
 
-        StartTurn();
+        Invoke("StartTurn", 3f);
     }
 
     private void StartTurn()

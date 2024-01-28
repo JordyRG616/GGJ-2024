@@ -37,6 +37,8 @@ public class HandManager : ManagerBehaviour, ICardHolder
 
     public void Draw(int amount)
     {
+        if (cardsInHand.Count == handSize) return;
+
         for (int i = 0; i < amount; i++)
         {
             deckManager.DrawCard(this);
