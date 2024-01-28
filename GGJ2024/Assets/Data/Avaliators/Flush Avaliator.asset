@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ef784d6cc5d6949b8a3882dd8c9325, type: 3}
   m_Name: Flush Avaliator
   m_EditorClassIdentifier: 
-  <toleranceReward>k__BackingField: 0
+  <toleranceReward>k__BackingField: 12
+  literal: Flush!!

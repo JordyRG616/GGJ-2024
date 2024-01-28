@@ -11,6 +11,7 @@ public class HandManager : ManagerBehaviour, ICardHolder
     private List<CardBlueprint> cardsInHand = new List<CardBlueprint>();
     private DeckManager deckManager;
 
+    private bool usedNotebook = false;
 
     private void Start()
     {
@@ -27,12 +28,19 @@ public class HandManager : ManagerBehaviour, ICardHolder
             deckManager.ReceiveCard(card);
         }
 
+        usedNotebook = false;
         cardsInHand.Clear();
     }
 
     private void DrawTurnHand()
     {
         Draw(drawPerTurn);
+    }
+
+    public void UseNotebook()
+    {
+        Draw(1);
+        usedNotebook = true;
     }
 
     public void Draw(int amount)

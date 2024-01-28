@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7fa96e97-ea9f-4bf0-8720-fdddf3fa591e}">
+		<property name="assetPath">
+			<value>inki-minki-tinki-152746.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>135.68000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{65be8a18-86db-49d6-af5f-8e8b8d33a15b}</destination>
+		</relationship>
+	</object>
+</objects>

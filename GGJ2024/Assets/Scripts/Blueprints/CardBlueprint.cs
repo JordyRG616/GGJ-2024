@@ -13,6 +13,8 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
     [SerializeField] private Image suitImage;
     [SerializeField] private Image valueImage;
     [SerializeField] private Sprite selectedSprite;
+    [SerializeField] private AudioPlayer selectedSFX;
+    [SerializeField] private AudioPlayer deselectedSFX;
 
     public static bool SelectingCardToRemember = false;
     public static System.Action<CardBlueprint> OnCardSelectedToRemember;
@@ -78,11 +80,13 @@ public class CardBlueprint : MonoBehaviour, IBlueprint, IPointerClickHandler, IP
             {
                 bg.overrideSprite = selectedSprite;
                 selected = true;
+                selectedSFX.Play();
             }
         }
         else
         {
             Unselect();
+            deselectedSFX.Play();
         }
     }
 

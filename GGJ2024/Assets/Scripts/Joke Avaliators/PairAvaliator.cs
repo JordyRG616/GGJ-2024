@@ -7,6 +7,8 @@ public class PairAvaliator : JokeAvaliator
 {
     public override bool Fulfilled(List<CardBlueprint> cards)
     {
+        if (cards.Count < 2) return false;
+
         for (int i = 0; i < cards.Count; i++)
         {
             var value = cards[i].Value;

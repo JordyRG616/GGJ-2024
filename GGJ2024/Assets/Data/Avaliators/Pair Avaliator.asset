@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614a70d84ab18e84eadbd9960bf86509, type: 3}
   m_Name: Pair Avaliator
   m_EditorClassIdentifier: 
-  <toleranceReward>k__BackingField: 15
+  <toleranceReward>k__BackingField: 2
+  literal: Pair...

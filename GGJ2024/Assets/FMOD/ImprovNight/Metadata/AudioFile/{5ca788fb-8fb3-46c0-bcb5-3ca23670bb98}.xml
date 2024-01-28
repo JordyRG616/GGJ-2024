@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5ca788fb-8fb3-46c0-bcb5-3ca23670bb98}">
+		<property name="assetPath">
+			<value>large-crowd-applause-6250.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>82.968000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{65be8a18-86db-49d6-af5f-8e8b8d33a15b}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -12,11 +12,15 @@ public class AudienceManager : ManagerBehaviour, ICardHolder
     [SerializeField] private int initialTolerance;
     [SerializeField] private List<int> noJokeToleranceHit;
 
+    [SerializeField] ParticleSystem hahaVFX_1;
+    [SerializeField] ParticleSystem hahaVFX_2;
+
     public Action<int, int> OnToleranceChanged;
 
     private List<CardBlueprint> cardsInTable = new List<CardBlueprint>();
     private DeckManager deckManager;
     private int toleranceHitIndex = 0;
+    private int turnIndex;
 
     private int _tolerance;
     public int CurrentTolerance
@@ -36,8 +40,20 @@ public class AudienceManager : ManagerBehaviour, ICardHolder
         var gameFlow = GameMaster.GetManager<GameFlowManager>();
         gameFlow.OnTurnStart += FlipInitialPrompts;
         gameFlow.OnTurnEnd += ReturnCardsToDeck;
+        gameFlow.OnTurnEnd += ScaleHits;
 
         CurrentTolerance = initialTolerance;
+        toleranceHitIndex = -initialFlip;
+    }
+
+    private void ScaleHits()
+    {
+        turnIndex++;
+
+        for (int i = 0; i < noJokeToleranceHit.Count; i++)
+        {
+            noJokeToleranceHit[i] += (i + 1) * turnIndex;
+        }
     }
 
     private void ReturnCardsToDeck()
@@ -48,7 +64,7 @@ public class AudienceManager : ManagerBehaviour, ICardHolder
         }
 
         cardsInTable.Clear();
-        toleranceHitIndex = 0;
+        toleranceHitIndex = -initialFlip;
     }
 
     private void FlipInitialPrompts()
@@ -89,6 +105,21 @@ public class AudienceManager : ManagerBehaviour, ICardHolder
     public void EvaluateToleranceChange(int toleranceReward)
     {
         CurrentTolerance += toleranceReward;
+
+        if(toleranceReward > 0)
+        {
+            var rdm = UnityEngine.Random.Range(0, 1f);
+
+            if (rdm < .33f) hahaVFX_1.Play();
+            else if(rdm > .66f)
+            {
+                hahaVFX_1.Play();
+                hahaVFX_2.Play();
+            } else
+            {
+                hahaVFX_2.Play();
+            }
+        }
     }
 
     public void ApplyToleranceHit()

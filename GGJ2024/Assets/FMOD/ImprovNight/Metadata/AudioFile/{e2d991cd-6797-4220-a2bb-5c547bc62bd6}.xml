@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{e2d991cd-6797-4220-a2bb-5c547bc62bd6}">
+		<property name="assetPath">
+			<value>Claps.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.048</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{65be8a18-86db-49d6-af5f-8e8b8d33a15b}</destination>
+		</relationship>
+	</object>
+</objects>

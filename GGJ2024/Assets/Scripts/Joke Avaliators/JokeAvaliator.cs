@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class JokeAvaliator : ScriptableObject
 {
     [field:SerializeField] public int toleranceReward { get; protected set; }
-
+    public string literal;
 
     public abstract bool Fulfilled(List<CardBlueprint> cards);
 

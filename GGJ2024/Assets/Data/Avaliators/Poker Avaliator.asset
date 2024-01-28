@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6686301a512a7c243ac9eef9c082709e, type: 3}
   m_Name: Poker Avaliator
   m_EditorClassIdentifier: 
-  <toleranceReward>k__BackingField: 0
+  <toleranceReward>k__BackingField: 20
+  literal: Four of a kind!!
   pokerSize: 4

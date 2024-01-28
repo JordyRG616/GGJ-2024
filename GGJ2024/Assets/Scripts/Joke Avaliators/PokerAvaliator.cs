@@ -9,6 +9,8 @@ public class PokerAvaliator : JokeAvaliator
 
     public override bool Fulfilled(List<CardBlueprint> cards)
     {
+        if (cards.Count < pokerSize) return false;
+
         for (int i = 0; i < cards.Count; i++)
         {
             var value = cards[i].Value;

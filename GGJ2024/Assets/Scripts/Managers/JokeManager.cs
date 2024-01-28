@@ -10,11 +10,13 @@ public class JokeManager : ManagerBehaviour
     [SerializeField] private List<SelectedCardDisplay> cardDisplay;
     [Space]
     [SerializeField] private List<JokeAvaliator> avaliators;
+    [SerializeField] private TextMeshProUGUI previewOutcome;
 
-    public bool CanTellJoke => cardDisplay.Count == jokeSize && cardsFromHand > 0 && cardsFromAudience > 0;
+    public bool CanTellJoke => cardsFromHand > 0 && cardsFromAudience > 0;
 
     private List<CardBlueprint> cardsInJoke = new List<CardBlueprint>();
     private AudienceManager audienceManager;
+    private JokeAvaliator currentAvaliator;
     private int cardsFromAudience;
     private int cardsFromHand;
 
@@ -35,7 +37,6 @@ public class JokeManager : ManagerBehaviour
             else cardsFromAudience++;
 
             cardsInJoke.Add(card);
-
             return true;
         }
         else return false;
@@ -57,23 +58,54 @@ public class JokeManager : ManagerBehaviour
 
     public void EvaluateJoke()
     {
+            Debug.Log("kakak");
         var toldJoke = false;
 
-        for (int i = 0; i < avaliators.Count; i++)
+        if (currentAvaliator != null && CanTellJoke)
         {
-            var avaliator = avaliators[i];
-            if (avaliator.Fulfilled(cardsInJoke))
-            {
-                audienceManager.EvaluateToleranceChange(avaliator.toleranceReward);
-                toldJoke = true;
-                break;
-            }
+            audienceManager.EvaluateToleranceChange(currentAvaliator.toleranceReward);
+            toldJoke = true;
         }
+
+        //for (int i = 0; i < avaliators.Count; i++)
+        //{
+        //    var avaliator = avaliators[i];
+        //    if (avaliator.Fulfilled(cardsInJoke))
+        //    {
+        //        toldJoke = true;
+        //        break;
+        //    }
+        //}
 
         if(!toldJoke)
         {
             audienceManager.ApplyToleranceHit();
         }
+
+        cardsFromAudience = 0;
+        cardsFromHand = 0;
+    }
+
+    private void CheckMatches()
+    {
+        for (int i = 0; i < avaliators.Count; i++)
+        {
+            var avaliator = avaliators[i];
+            if (avaliator.Fulfilled(cardsInJoke))
+            {
+                currentAvaliator = avaliator;
+                previewOutcome.text = avaliator.literal;
+                return;
+            }
+        }
+
+        currentAvaliator = null;
+        previewOutcome.text = "No Joke!!";
+    }
+
+    private void Update()
+    {
+        CheckMatches();
     }
 }
 

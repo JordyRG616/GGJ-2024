@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameFlowManager : ManagerBehaviour
@@ -38,10 +39,10 @@ public class GameFlowManager : ManagerBehaviour
 
     private IEnumerator DoTransitionBetweenTurns()
     {
+        jokeManager.EvaluateJoke();
+
         if (jokeManager.CanTellJoke)
         {
-            jokeManager.EvaluateJoke();
-
             yield return new WaitForSeconds(transitionDelay);
         }
 
@@ -50,5 +51,15 @@ public class GameFlowManager : ManagerBehaviour
         yield return new WaitForSeconds(transitionDelay);
 
         StartTurn();
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
